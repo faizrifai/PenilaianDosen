@@ -1,11 +1,25 @@
 GET http://localhost:3000/dosen
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3MjkwNTU5NywiZXhwIjoxNjcyOTA1NjE3fQ.zICy4LvpVdW_pxH8rWU6EI8vPTwDnq4TL9f0JGfev88
 
 ###
-POST http://localhost:3000/register
+POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "Rize",
-    "password": "123456",
+    "username": "FaizRifai5",
+    "password": "12345",
+    "role": "dosen"
+}
+
+###
+GET http://localhost:3000/token
+
+###
+PUT http://localhost:3000/edituser/2
+Content-Type: application/json
+
+{
+    "username": "FaizRifai5",
+    "password": "12345",
     "role": "dosen"
 }
