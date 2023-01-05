@@ -15,7 +15,7 @@ model user {
   username      String       @unique
   password      String
   role          String
-  refresh_token String
+  refresh_token String       @db.VarChar(400)
   data_dosen    Data_dosen[]
 }
 

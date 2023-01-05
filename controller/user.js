@@ -39,6 +39,21 @@ export const readUser = async (req, res) => {
   res.json(post);
 };
 
+export const ChangeUser = async (req, res) => {
+  const { id } = req.params;
+  const { username, password } = req.body;
+  const salt = await bcrypt.genSalt();
+  const hashPassword = await bcrypt.hash(password, salt);
+  const post = await prisma.user.update({
+    where: { id: +id },
+    data: {
+      username,
+      password: hashPassword,
+    },
+  });
+  res.json(post);
+};
+
 export const Login = async (req, res) => {
   try {
     const user = await prisma.user.findMany({
@@ -80,8 +95,16 @@ export const Login = async (req, res) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
-    res.json({ accessToken });
+    res.json({ accessToken, refreshToken });
   } catch (error) {
     res.status(404).json({ msg: "Username tidak ada" });
   }
+};
+
+export const DeleteUser = async (req, res) => {
+  const { id } = req.params;
+  const post = await prisma.user.delete({
+    where: { id: +id },
+  });
+  res.json({ message: "Id berhasil dihapus", post });
 };
