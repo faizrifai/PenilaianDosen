@@ -6,8 +6,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "FaizRifai5",
-    "password": "12345",
+    "username": "FaizRifai",
+    "password": "1234511",
     "role": "dosen"
 }
 
@@ -23,3 +23,22 @@ Content-Type: application/json
     "password": "12345",
     "role": "dosen"
 }
+
+###
+PUT http://localhost:3000/nilai/14
+Content-Type: application/json
+
+{
+    "nama": "Faiz Lasiatamq",
+    "nilai_harian":80,
+    "bobot1": 20,
+    "ulangan_tengah": 80,
+    "bobot2": 40,
+    "ulangan_akhir": 100,
+    "bobot3": 40,
+    "sks": 4
+}
+
+###
+DELETE http://localhost:3000/nilai/14
+Content-Type: application/json
