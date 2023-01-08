@@ -19,6 +19,28 @@ model user {
   data_dosen    Data_dosen[]
 }
 
+model user2 {
+  id            Int    @id @default(autoincrement())
+  username      String @unique
+  password      String
+  role          String
+  refresh_token String @db.VarChar(400)
+}
+
+model nilai {
+  id             Int    @id @default(autoincrement())
+  nama           String
+  nilai_harian   Int
+  bobot1         Int
+  ulangan_tengah Int
+  bobot2         Int
+  ulangan_akhir  Int
+  bobot3         Int
+  hasil          Float
+  sks            Int
+  IP             Float
+}
+
 model Data_dosen {
   id            Int      @id @default(autoincrement())
   nama          String
