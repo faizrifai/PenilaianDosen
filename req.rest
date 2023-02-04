@@ -1,9 +1,9 @@
 GET http://localhost:3000/dosen
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3NDg4MjI1MiwiZXhwIjoxNjc0ODgyMjY3fQ.DycmVhBQwlF8S3Yi9P4Cckd1LLhD4gXX1jz7IG91LiY
+Authorization: Bearer 
 
 ###
 DELETE http://localhost:3000/deleteuser
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJ1c2VybmFtZUlkIjoiYWRtaW4iLCJyb2xlSWQiOiJhZG1pbiIsImlhdCI6MTY3NTQ3MTMyOCwiZXhwIjoxNjc1NDcxMzQzfQ.YbEjfIN2OC-RyD6URPOF9n8W9hQFdGiV0JQ2U8obRu0
+Authorization: Bearer 
 
 ###
 DELETE http://localhost:3000/deleteuser/22
@@ -33,12 +33,12 @@ DELETE http://localhost:3000/logout
 
 ###
 GET http://localhost:3000/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJ1c2VybmFtZUlkIjoiYWRtaW4iLCJyb2xlSWQiOiJhZG1pbiIsImlhdCI6MTY3NTMyMTIxOCwiZXhwIjoxNjc1MzIxMjMzfQ.UGjWVp2FrkCgugdgkjF3AeXmNqCtmT_o_vQdCwXkHDQ
+Authorization: Bearer 
 ###
 GET http://localhost:3000/user
 ###
 GET http://localhost:3000/dosen/14
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3NTMyMDAxNiwiZXhwIjoxNjc1MzIwMDMxfQ.e8djT7qI6DCXLEZgfPOOmPXaJdxZ4xXbVniSivrW0MY   
+Authorization: Bearer 
 ###
 GET http://localhost:3000/token
 ###
@@ -53,7 +53,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/nilai
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJ1c2VybmFtZUlkIjoiMTgwNTM1NjMyNTIxIiwicm9sZUlkIjoibWFoYXNpc3dhIiwiaWF0IjoxNjc1NDk0MDc2LCJleHAiOjE2NzU0OTQwOTF9.dbHiTEs6-FtO14M3xmhEVucmYg5cTrXSsG4xyR88bKI
+Authorization: Bearer 
 Content-Type: application/json
 
 {
@@ -71,7 +71,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/nilaisaya
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJ1c2VybmFtZUlkIjoiMTgwNTM1NjMyNTIxIiwicm9sZUlkIjoibWFoYXNpc3dhIiwiaWF0IjoxNjc1MTE2MDgxLCJleHAiOjE2NzUxMTYwOTZ9.D3savmcFJhXKIcU1oBWr1pjxurJOl6MOJbsALlAqJL0
+Authorization: Bearer 
 ###
 DELETE http://localhost:3000/nilai/14
 Content-Type: application/json
