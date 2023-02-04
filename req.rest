@@ -14,7 +14,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "1234567",
+    "username": "180535632521",
     "password": "123",
     "role": "adwad"
 }
@@ -53,13 +53,13 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/nilai
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJ1c2VybmFtZUlkIjoiMTExMSIsInJvbGVJZCI6Im1haGFzaXN3YSIsImlhdCI6MTY3NTExNTQ5NywiZXhwIjoxNjc1MTE1NTEyfQ.yrr6JF-45M1cfmEoWzpX2GCBxU_bKyFdYHzkX-XqeYk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJ1c2VybmFtZUlkIjoiMTgwNTM1NjMyNTIxIiwicm9sZUlkIjoibWFoYXNpc3dhIiwiaWF0IjoxNjc1NDk0MDc2LCJleHAiOjE2NzU0OTQwOTF9.dbHiTEs6-FtO14M3xmhEVucmYg5cTrXSsG4xyR88bKI
 Content-Type: application/json
 
 {
     "nama": "Faiz Lasiatamq",
-    "nim": "1111",
-    "matakuliah": "MTK",
+    "nim": "180535632521",
+    "matakuliah": "B.Indo",
     "nilai_harian":84,
     "bobot1": 20,
     "ulangan_tengah": 80,
