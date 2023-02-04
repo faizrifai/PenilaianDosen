@@ -7,16 +7,20 @@ import {
   putDosen,
   deleteDosen,
 } from "../controller/DataDosen.js";
-import { verifytoken } from "../middleware/VerifyToken.js";
+import {
+  verifytoken,
+  verifyuseradmin,
+  verifyusermahasiswa,
+  verifyuserdosen,
+} from "../middleware/VerifyToken.js";
 import { refreshToken } from "../controller/RefreshToken.js";
 const router = express.Router();
 
 router.get("/token", refreshToken);
 router.get("/dosen", verifytoken, readDosen);
-router.get("/dosen/:id", verifytoken, readDosenId);
-router.post("/dosen", verifytoken, createDosen);
-router.put("/dosen/:id", verifytoken, putDosen);
-router.put("/dosen", putDosenId);
-router.delete("/dosen/:id", verifytoken, deleteDosen);
+router.get("/dosen/:id", verifyuserdosen, verifytoken, readDosenId);
+router.post("/dosen", verifyuseradmin, verifytoken, createDosen);
+router.put("/dosen/:id", verifyuserdosen, verifytoken, putDosenId);
+router.delete("/dosen/:id", verifyuseradmin, verifytoken, deleteDosen);
 
 export default router;

@@ -1,19 +1,46 @@
 GET http://localhost:3000/dosen
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3MjkwNTU5NywiZXhwIjoxNjcyOTA1NjE3fQ.zICy4LvpVdW_pxH8rWU6EI8vPTwDnq4TL9f0JGfev88
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3NDg4MjI1MiwiZXhwIjoxNjc0ODgyMjY3fQ.DycmVhBQwlF8S3Yi9P4Cckd1LLhD4gXX1jz7IG91LiY
+
+###
+DELETE http://localhost:3000/deleteuser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJ1c2VybmFtZUlkIjoiYWRtaW4iLCJyb2xlSWQiOiJhZG1pbiIsImlhdCI6MTY3NTQ3MTMyOCwiZXhwIjoxNjc1NDcxMzQzfQ.YbEjfIN2OC-RyD6URPOF9n8W9hQFdGiV0JQ2U8obRu0
+
+###
+DELETE http://localhost:3000/deleteuser/22
+
 
 ###
 POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "FaizRifai",
-    "password": "1234511",
+    "username": "1234567",
+    "password": "123",
+    "role": "adwad"
+}
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "1",
+    "password": "123",
+    "confpassword": "123",
     "role": "dosen"
 }
+###
+DELETE http://localhost:3000/logout
 
 ###
+GET http://localhost:3000/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJ1c2VybmFtZUlkIjoiYWRtaW4iLCJyb2xlSWQiOiJhZG1pbiIsImlhdCI6MTY3NTMyMTIxOCwiZXhwIjoxNjc1MzIxMjMzfQ.UGjWVp2FrkCgugdgkjF3AeXmNqCtmT_o_vQdCwXkHDQ
+###
+GET http://localhost:3000/user
+###
+GET http://localhost:3000/dosen/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lSWQiOiJGYWl6UmlmYWkiLCJyb2xlSWQiOiJkb3NlbiIsImlhdCI6MTY3NTMyMDAxNiwiZXhwIjoxNjc1MzIwMDMxfQ.e8djT7qI6DCXLEZgfPOOmPXaJdxZ4xXbVniSivrW0MY   
+###
 GET http://localhost:3000/token
-
 ###
 PUT http://localhost:3000/edituser/2
 Content-Type: application/json
@@ -25,12 +52,15 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/nilai/14
+POST http://localhost:3000/nilai
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIyLCJ1c2VybmFtZUlkIjoiMTExMSIsInJvbGVJZCI6Im1haGFzaXN3YSIsImlhdCI6MTY3NTExNTQ5NywiZXhwIjoxNjc1MTE1NTEyfQ.yrr6JF-45M1cfmEoWzpX2GCBxU_bKyFdYHzkX-XqeYk
 Content-Type: application/json
 
 {
     "nama": "Faiz Lasiatamq",
-    "nilai_harian":80,
+    "nim": "1111",
+    "matakuliah": "MTK",
+    "nilai_harian":84,
     "bobot1": 20,
     "ulangan_tengah": 80,
     "bobot2": 40,
@@ -40,5 +70,11 @@ Content-Type: application/json
 }
 
 ###
+GET http://localhost:3000/nilaisaya
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJ1c2VybmFtZUlkIjoiMTgwNTM1NjMyNTIxIiwicm9sZUlkIjoibWFoYXNpc3dhIiwiaWF0IjoxNjc1MTE2MDgxLCJleHAiOjE2NzUxMTYwOTZ9.D3savmcFJhXKIcU1oBWr1pjxurJOl6MOJbsALlAqJL0
+###
 DELETE http://localhost:3000/nilai/14
+Content-Type: application/json
+###
+DELETE http://localhost:3000/nilai
 Content-Type: application/json

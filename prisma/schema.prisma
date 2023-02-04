@@ -11,25 +11,26 @@ datasource db {
 }
 
 model user {
-  id            Int          @id @default(autoincrement())
-  username      String       @unique
-  password      String
-  role          String
-  refresh_token String       @db.VarChar(400)
-  data_dosen    Data_dosen[]
+  id             Int              @id @default(autoincrement())
+  username       String           @unique
+  password       String
+  role           RoleEnumType?
+  refresh_token  String           @db.VarChar(400)
+  data_dosen     Data_dosen[]
+  data_mahasiswa Data_mahasiswa[]
 }
 
-model user2 {
-  id            Int    @id @default(autoincrement())
-  username      String @unique
-  password      String
-  role          String
-  refresh_token String @db.VarChar(400)
+enum RoleEnumType {
+  dosen
+  mahasiswa
+  admin
 }
 
 model nilai {
-  id             Int    @id @default(autoincrement())
+  id             Int            @id @default(autoincrement())
+  nim            String
   nama           String
+  matakuliah     String
   nilai_harian   Int
   bobot1         Int
   ulangan_tengah Int
@@ -39,16 +40,25 @@ model nilai {
   hasil          Float
   sks            Int
   IP             Float
+  nilai_mhs      Data_mahasiswa @relation(fields: [nim], references: [nim], onDelete: Cascade)
+}
+
+model Data_mahasiswa {
+  id       Int     @id @default(autoincrement())
+  nama     String
+  nim      String  @unique
+  author   user    @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId Int
+  nilai    nilai[]
 }
 
 model Data_dosen {
   id            Int      @id @default(autoincrement())
   nama          String
   nip           String
-  matakuliah    String
   tanggal_lahir DateTime @db.Date
   nomor_telepon String
   alamat        String
-  author        user     @relation(fields: [authorId], references: [id])
+  author        user     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId      Int
 }

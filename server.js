@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import session from "express-session";
 import bodyParser from "body-parser";
 //import xlsx from "xlsx";
 import cookieparser from "cookie-parser";
@@ -11,6 +12,16 @@ import PenilaianRoute from "./routes/NilaiMahasiswa.js";
 dotenv.config();
 const app = express();
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: "auto",
+    },
+  })
+);
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());

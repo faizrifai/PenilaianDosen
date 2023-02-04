@@ -34,13 +34,13 @@ export const readDosen = async (req, res) => {
 };
 
 export const readDosenId = async (req, res) => {
+  if (req.role == "mahasiswa") return res.json("ada bukan dosen/mahasiswa");
   const { id } = req.params;
   const post = await prisma.Data_dosen.findUnique({
-    where: { id: +id },
+    where: { authorId: +id },
   });
-  if (post) {
-    res.json(post);
-  } else {
+  if (post) return res.json(post);
+  else {
     res.json("data tidak ditemukan");
   }
 };

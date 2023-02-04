@@ -2,9 +2,22 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+export const readNilaiMhs = async (req, res) => {
+  const user = await prisma.user.findFirst({
+    where: { id: req.IdUser },
+  });
+  const post = await prisma.nilai.findMany({
+    where: { nim: user.username },
+  });
+
+  res.json(post);
+};
+
 export const createNilai = async (req, res) => {
   const {
     nama,
+    nim,
+    matakuliah,
     nilai_harian,
     bobot1,
     ulangan_tengah,
@@ -40,6 +53,10 @@ export const createNilai = async (req, res) => {
     const post = await prisma.nilai.create({
       data: {
         nama,
+
+        nim,
+
+        matakuliah,
 
         nilai_harian,
 
@@ -158,6 +175,17 @@ export const deleteNilai = async (req, res) => {
     });
     if (post) {
       res.json({ post, message: "Data berhasil dihapus!" });
+    }
+  } catch (error) {
+    res.json("data tidak ada");
+  }
+};
+
+export const deleteAllNilai = async (req, res) => {
+  try {
+    const post = await prisma.nilai.deleteMany({});
+    if (post) {
+      res.json({ post, message: "Semua data berhasil dihapus!" });
     }
   } catch (error) {
     res.json("data tidak ada");

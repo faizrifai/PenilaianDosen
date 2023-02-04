@@ -7,11 +7,10 @@ export const refreshToken = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) return res.sendStatus(401);
-    const user = await prisma.user.findMany({
+    const user = await prisma.user.findFirst({
       where: { refresh_token: refreshToken },
     });
-    console.log(refreshToken);
-    if (!user[0]) {
+    if (!user) {
       return res.sendStatus(401);
     }
     jwt.verify(
@@ -19,18 +18,20 @@ export const refreshToken = async (req, res) => {
       process.env.REFRESH_TOKEN_SECRET,
       (err, decoded) => {
         if (err) return res.sendStatus(403);
-        const userId = user[0].id;
-        const usernameId = user[0].username;
-        const roleId = user[0].role;
+        const userId = user.id;
+        const usernameId = user.username;
+        const roleId = user.role;
         const accessToken = jwt.sign(
           { userId, usernameId, roleId },
           process.env.ACCESS_TOKEN_SECRET,
           {
-            expiresIn: "20s",
+            expiresIn: "15s",
           }
         );
         res.json(accessToken);
       }
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
