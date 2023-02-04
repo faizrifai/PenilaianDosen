@@ -27,7 +27,8 @@ export const verifyusermahasiswa = async (req, res, next) => {
   });
   if (!user) return res.status(401).json("user tidak ada");
   if (user.role !== "mahasiswa")
-    return res.status(403).json("akses dilaran, anda bukan mahasiswa");
+    if (user.role !== "admin")
+      return res.status(403).json("akses dilarang, anda bukan mahasiswa");
   next();
 };
 
@@ -42,11 +43,15 @@ export const verifyuseradmin = async (req, res, next) => {
 };
 
 export const verifyuserdosen = async (req, res, next) => {
+  if (!req.session.IdUser) {
+    return res.json("mohon login!");
+  }
   const user = await prisma.user.findFirst({
     where: { id: req.session.IdUser },
   });
   if (!user) return res.status(401).json("user tidak ada");
   if (user.role !== "dosen")
-    return res.status(403).json("akses dilarang, anda bukan dosen");
+    if (user.role !== "admin")
+      return res.status(403).json("akses dilarang, anda bukan dosen");
   next();
 };
